@@ -6,7 +6,8 @@ echo "Using crapns server at $1"
 echo "Registering $ip with $name"
 
 cat <<EOF | sh
-curl  -i -H "Content-Type: application/json"  -X POST -d '{"ip":"$ip", "name": "$name"}' http://$crapns:5000/register 
+curl -f -i -H "Content-Type: application/json"  -X POST -d '{"ip":"$ip", "name": "$name"}' http://$crapns:5000/register 
+
 EOF
 
 
