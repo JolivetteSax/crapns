@@ -22,22 +22,25 @@ print(data)' "$@"
 # Then register this hostname with that server
 # Begin polling process to check for changes sometimes
 
-#rm crap.json
-#rm hosts.json
+crapIP=""
+if [ -f crap.json ] ; then
+    crapIP=`cat crap.json | json_key crapns`
+fi
 
-#./discover.sh
-
-# cat the crap
-json=`cat crap.json | python -m json.tool`
+./discover.sh $crapIP
 
 if [ $? -ne 0 ] ; then
     echo "Failed to discover crapns running on the lan..."
     exit 1
 fi
 
-crapIP=`echo $json | json_key crapns`
+crapIP=`cat crap.json | json_key crapns`
 
 ./register.sh $crapIP
 
 # launch polling/sleeping script
+while true ; do
+    ./getHosts.sh $crapIP
+    sleep 60
+done
 
