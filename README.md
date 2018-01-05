@@ -28,9 +28,12 @@ hosts file written by the polling loop. It's good to see the initialize
 script finish creating the hosts file before starting the copyloop script
 
 ```
-./initialize.sh &> client.log
+./initialize.sh &> client.log &
 sudo ./copyLoop.sh &> /dev/null &
 ```
+
+You can end your terminal session safely, but don't forget you'll fire a SIGHUP
+and kill these scripts in certain cases, and nohup would be better than `&`.
 
 ## What is crapns?
 
