@@ -2,7 +2,7 @@
 
 if [ "$#" -eq 1 ] ; then
     remote=$1
-    ping $remote -c16
+    ping $remote -c4
     if [ $? -eq 0 ] ; then
         echo "$remote is up"
         result=`curl -f -m 10 http://$remote:10053/discover`

@@ -1,5 +1,37 @@
 # crapns
 
+## Run Server
+
+Depends
+```
+sudo apt-get install pip3 python3 
+pip3 install flask
+```
+
+Start Server
+
+```
+./server.sh
+tail -f crapns.log
+```
+
+## Run Client
+
+Dependencies
+
+```
+sudo apt-get install python3 inotify-tools
+```
+
+Run the polling/disco script and sudo the copy loop that watches the 
+hosts file written by the polling loop. It's good to see the initialize
+script finish creating the hosts file before starting the copyloop script
+
+```
+./initialize.sh &> client.log
+sudo ./copyLoop.sh &> /dev/null &
+```
+
 ### What is crapns?
 
 Remembering IP addresses on your local LAN is crappy. Now that I've got more than 

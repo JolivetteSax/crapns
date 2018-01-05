@@ -8,7 +8,7 @@ if [ $? -ne 0 ] ; then
 fi
 
 # cut the crap
-orig_hosts=`cat /etc/hosts | sed -e '/CRAP/ { N; d; }'`
+orig_hosts=`cat /etc/hosts | sed '/CRAP/,/END OF CRAP/d'`
 echo "$orig_hosts
 
 # CRAP
