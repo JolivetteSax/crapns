@@ -2,7 +2,7 @@ from flask import Flask, request
 import json
 
 application= Flask(__name__)
-ver='0'
+ver='0.1'
 
 #TODO: crapily load the existing list from crap.json
 crapfile='crap.json'
