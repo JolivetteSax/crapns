@@ -20,7 +20,7 @@ tail -f crapns.log
 Dependencies
 
 ```
-sudo apt-get install python3 inotify-tools
+sudo apt-get install curl inotify-tools
 ```
 
 Run the polling/disco script and sudo the copy loop that watches the 

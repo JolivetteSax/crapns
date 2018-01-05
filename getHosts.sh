@@ -1,6 +1,6 @@
 #!/bin/bash
 
-json=`curl -s -f http://$1:10053/hosts | python -m json.tool`
+json=`curl -s -f http://$1:10053/hosts | python3 -m json.tool`
 
 if [ $? -ne 0 ] ; then
     echo "failed to get hosts"
