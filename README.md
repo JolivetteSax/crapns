@@ -32,20 +32,22 @@ script finish creating the hosts file before starting the copyloop script
 sudo ./copyLoop.sh &> /dev/null &
 ```
 
-### What is crapns?
+## What is crapns?
 
 Remembering IP addresses on your local LAN is crappy. Now that I've got more than 
 one server I don't want to do this any more. 
 
 My home router is doing DHCP just fine. I don't want to turn that off, stand up
-yet another server, run DHCP and set static addresses. 
+yet another server, run DHCP and set static addresses. I don't want to run my own 
+home DNS server, nor do I want to configure the router to use a different DNS, 
+I'd like to keep as much plug'n'play as possible.
 
 Crapns allows a computer on this network (that knows the wifi password, so it's cool)
 to register a name and local IP address. Connecting to the crapns service will allow
 a host to download the current list and add those entries to /etc/hosts
 
-When I install ubuntu on a new machine, I set a hostname - git clone and run the install
-script, and voila, everyone on the network should get this entry when they poll for 
+When I install ubuntu on a new machine, I set a hostname - git clone and run the client
+scripts, and voila, everyone on the network should get this entry when they poll for 
 new hosts. 
 
 ### Why is it crappy?
